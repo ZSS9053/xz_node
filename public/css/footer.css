@@ -1,0 +1,75 @@
+/*该文件编写的都是与footer.html相关的css*/
+div.main{
+	width:960px;
+	margin:0 auto;
+	
+}
+#foot-box{
+	padding:30px 0;
+	background-color:#f5f5f5;
+	/*问题1：高度变为 0*/
+}
+#foot-box>div{
+	/*左浮动，宽度，内容水平居中对齐*/
+	float:left;
+	width:240px;
+	text-align:center;
+}
+#foot-box p{
+	font-size:14px;
+}
+
+/***LOGO,买家帮助，二维码，客户端***/
+/*问题2 ：#foot-other 的高度变为 0*/
+#foot-other{
+	margin-top:30px;
+}
+#foot-other>div{
+	width:320px;
+	float:left;
+}
+#foot-other ul{
+	/*左浮动，宽度，行高*/
+	float:left;
+	width:100px;
+	line-height:25px;
+}
+#foot-other ul.mid{
+	margin:0 10px;
+}
+/*ul 中所有的 a 标记 以及 鼠标悬停的状态*/
+#foot-other ul a{
+	/*取消下划线，文本颜色*/
+	text-decoration:none;
+	color:#808080;
+}
+#foot-other ul a:hover{
+	/*文本颜色*/
+	color:#333;
+}
+
+/*客户端 & 二维码*/
+#foot-other div.qrCode{
+	float:right;
+}
+#foot-other div.service{
+	float:right;
+}
+#foot-other div.service img{
+	display:block;
+	margin-bottom:5px;
+}
+#foot-other div.service p{
+	/*文本颜色，文字大小，下外边距*/
+	color:#333;
+	font-size:14px;
+	margin-bottom:10px;
+}
+
+
+
+
+
+
+
+

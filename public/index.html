@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="Expires" content="-1">
+  <meta http-equiv="cache-control" content="no-cache">
+  <title>Title</title>
+  <link rel="stylesheet" href="css/base.css">
+  <link rel="stylesheet" href="css/index.css">
+  <link rel="stylesheet" href="css/header.css">
+  <link rel="stylesheet" href="css/footer.css">
+</head>
+<body>
+  <div class="main">
+    <!--1、页面头部-->
+    <header id="header">
+      <!-- <iframe src="header.html" frameborder="0"></iframe> -->
+      <img src="img/loading.gif" alt="加载中..." >
+    </header>
+    <!--2、banner部分-->
+    <div id="banner">
+      <!-- 图片区域 -->
+      <ul class="banner-img" 
+          style="transition:all .3s linear;" data-load="bannerImgs">
+          <!-- 
+            <li>
+              <a href="${product_details.html?lid=28}">
+                <img src="${img/index/banner1.png}">
+              </a>
+            </li> 
+          -->
+          <li style="left:50%; margin: 180px 0 0 -19px;">
+            <img src="img/loading.gif">
+          </li>
+      </ul>
+      <!--左右方向按钮-->
+      <a href="#" class="ck-slide ck-left" data-move="left"></a>
+      <a href="#" class="ck-slide ck-right" data-move="right"></a>
+      <!--导航小圆点-->
+      <ul class="indicators" data-load="bannerInds">
+        <!-- <li></li> -->
+      </ul>
+    </div>
+    <!--3、楼梯 1F-->
+    <div class="floor" id="f1">
+      <div class="floor-top">首页推荐 / 1F</div>
+      <div class="floor-content">
+        <img src="img/loading.gif" class="loading">
+        <!-- 前三个
+        <div>
+          <div class="desc">
+            <p class="name">Apple MacBook Air系列</p>
+            <p class="details">酷睿双核i5处理器|256GB SSD|8GB内存|英特尔HD显卡620含共享显卡内存</p>
+            <p class="price">¥6988.00</p>
+            <a href="product_details.html?lid=1" class="view">查看详情</a>
+          </div>
+          <img src="img/index/study_computer_img1.png">
+        </div> -->      
+        <!-- 后三个
+        <div class="product">
+          <img src="img/index/study_computer_img4.png">
+          <p class="name">华硕RX310 金属超极本</p>
+          <p class="price">¥4966.00</p>
+          <a href="product_details.html?lid=1">查看详情</a>
+        </div> -->
+      </div>
+    </div>
+    <!--4、楼梯 2F-->
+    <div class="floor" id="f2">
+      <div class="floor-top">最新上架 / 2F</div>
+      <div class="floor-content"> 
+          <img src="img/loading.gif" class="loading">
+      </div>
+    </div>
+    <!--5、楼梯 3F-->
+    <div class="floor" id="f3">
+      <div class="floor-top">热销单品 / 3F</div>
+      <div class="floor-content">
+          <img src="img/loading.gif" class="loading">
+      </div>
+    </div>
+    <div id="lift">
+        <ul class="lift_list">
+          <!-- 
+            <li class="lift_item">
+              <a href="javascript:;" class="lift_btn">
+                <span class="lift_btn_txt">首页推荐</span>
+              </a>
+            </li>
+          -->
+        </ul>
+      </div>
+    <!--6、页面最底部-->
+    <footer id="footer">
+      <img src="img/loading.gif" class="loading">
+    </footer>
+  </div>
+  <script src="js/myQuery.js"></script>
+  <script src="js/ajax.js"></script>
+	<script src="js/jquery-3.2.1.js"></script>
+  <script src="js/header.js"></script>
+  <script src="js/footer.js"></script>
+  <script src="js/index.js"></script>
+</body>
+</html>
