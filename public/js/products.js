@@ -1,9 +1,13 @@
 (()=>{
   function loadProductsByPage(n=1){
-    var url="data/04-products/products.php";
-    var params=location.search.slice(1)+"&pno="+n;
-    $.get(url,params)
+    var str=location.search.slice(4);
+    console.log(str);
+    if(!str){
+      str=" ";
+    }
+    $.get("product/"+location.search.slice(4)+"/"+n)
       .then(data=>{
+        console.log(data);
       //加载数据
       var html="";
       var detailUrl="product-details.html?lid=";

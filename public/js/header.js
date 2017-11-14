@@ -21,8 +21,9 @@
       if(e.keyCode!=38&&e.keyCode!=40&&e.keyCode!=13){
         if(txt.value!=""){
           shelper.style.display="block";
-          ajax("get","search/"+txt.value)
+          ajax("get","product/search/"+txt.value)
           .then(data=>{
+            data=JSON.parse(data);
             if(data.length>0){
               var html="";
               for(var obj of data){
