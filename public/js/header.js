@@ -14,6 +14,10 @@
     window.onclick=function(e){
       if(e.target.id!="shelper"&&e.target.id!="txtSearch")
         shelper.style.display="none";
+    };
+    $("[data-trigger=search]")[0].onclick=function(e){
+      e.preventDefault();
+      location="products.html?kw="+txtSearch.value;
     }
     txtSearch.onfocus=
     txtSearch.onkeyup=function(e){
@@ -37,8 +41,7 @@
               shelper.innerHTML="未找到匹配商品";
             }
             return new Promise(resolve=>resolve())
-          })
-          .then(()=>{
+          }).then(()=>{
             shelper.onclick=function(e){
               if(e.target.nodeName=="DIV"){
                 txt.value=e.target.parentNode.title;
@@ -46,12 +49,7 @@
                   ()=>location="products.html?kw="+txt.value
                 ,500);
               }
-            }
-            $("[data-trigger=search]")[0].onclick=function(e){
-              e.preventDefault();
-              if(txt.value!="")
-                location="products.html?kw="+txt.value;
-            }
+            };
           })
         }else
           shelper.style.display="none";

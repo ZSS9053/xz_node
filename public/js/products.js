@@ -1,13 +1,11 @@
 (()=>{
   function loadProductsByPage(n=1){
     var str=location.search.slice(4);
-    console.log(str);
     if(!str){
-      str=" ";
+      str="empty";
     }
-    $.get("product/"+location.search.slice(4)+"/"+n)
+    $.get("product/get/"+n+"/"+str)
       .then(data=>{
-        console.log(data);
       //加载数据
       var html="";
       var detailUrl="product-details.html?lid=";
@@ -77,54 +75,53 @@
     $input.val(n);
   }).on("click",".addCart",e=>{
 		var $add=$(e.target);
-		$.post("data/cart/add.php",{
+		$.post("product/cart/add",{
 			lid:$add.parent().parent().attr("id"),
 			count:$add.prev().prev().val()
-		}).then(()=>{
+		}).then((msg)=>{
 			loadCart();
 		})
-		function loadCart(){
-			$.get("data/cart/list.php")
-				.then(data=>{
-					console.log(data)
-				var html="";
-				for(var item of data){
-					html+=`<div id="${item.iid}">
+	})
+  loadCart();
+  function loadCart(){
+    $.get("product/cart/list")
+      .then(data=>{
+        var html="";
+        for(var item of data){
+          html+=`<div id="${item.iid}">
               <span>${item.title}</span>
               <div>
                 <span class="reduce">-</span>
                 <input type="text" value="${item.count}"/>
                 <span class="add">+</span>
               </div>
-              <span class="price">￥${(item.count*item.price).tofixed(2)}</span>
+              <span class="price">￥${(item.count*item.price).toFixed(2)}</span>
             </div>`;
-				}
-				$("#cart>.cart_content").html(html);
-				var total=0;
-				var $subs=$("#cart>.cart_content>div>span:last-child");
-				$subs.each((i,elem)=>{
-					total+=parseInt($(elem).html().slice(1))
-				})
-				$("#toatl").html(total.tofixed(2));
-			})
-				loadCart();
-			$("#cart>.cart_content")
-				.on("click",".reduce,.add",e=>{
-				var $tar=$(e.target);
-				var n=parseInt($tar.siblings("input").val());
-				if($tar.html()=="+"){
-					n++;
-				}else if(n>1){
-					n--;
-				}
-				var iid=$tar.parent().parent().attr("id");
-				if(n>0){
-					$.post("data/cart/update.php",{iid:iid,count:n});
-				}else{
-					$.post("data/cart/delete.php",{iid:iid});
-				}
-				loadCart();
-			})
-		}
-	})
+        }
+        $("#cart>.cart_content").html(html);
+        var total=0;
+        var $subs=$("#cart>.cart_content>div>span:last-child");
+        $subs.each((i,elem)=>{
+          total+=parseInt($(elem).html().slice(1))
+        })
+        $("#toatl").html(total.toFixed(2));
+      })
+    $("#cart>.cart_content")
+      .on("click",".reduce,.add",e=>{
+        var $tar=$(e.target);
+        var n=parseInt($tar.siblings("input").val());
+        if($tar.html()=="+"){
+          n++;
+        }else if(n>=1){
+          n--;
+        }
+        var iid=$tar.parent().parent().attr("id");
+        if(n>0){
+          $.post("product/cart/update",{iid:iid,count:n});
+        }else{
+          $.post("product/cart/delete",{iid:iid});
+        }
+        loadCart();
+      })
+  }
 })()

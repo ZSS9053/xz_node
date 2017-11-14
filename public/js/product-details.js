@@ -5,9 +5,9 @@
   const LIWIDTH=62,SIZE=parseFloat($("#mask").css("width"));
 	var liCount=0,
 			moved=0;
-  $.get("data/05-product-details/details.php",
-        location.search.slice(1))
+  $.get("product/detail/"+location.search.slice(5))
    .then(data=>{
+			console.log(data);
     var details=data.details,family=data.family;
     //左上商品图片
     $("#mImg").attr("src",details.picList[0].md);
