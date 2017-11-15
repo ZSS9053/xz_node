@@ -4,8 +4,8 @@
     height:34px;
 }
 #top-input{
-    margin-left:40px;
-    margin-right:80px;
+    margin-left:80px;
+    margin-right:23px;
 }
 #top-input div.input-box{
     width:400px;
@@ -41,7 +41,7 @@
 }
 #list li{
     float:left;
-    line-height:20px;
+    line-height:35px;
     padding:2px;
 }
 #nav{
@@ -87,4 +87,12 @@
     white-space: nowrap;
     text-overflow: ellipsis;
     overflow: hidden;
+}
+#show-list li{
+    position:relative;
+    height:329px;
+}
+#show-list li div{
+    position:absolute;
+    bottom:5px;
 }

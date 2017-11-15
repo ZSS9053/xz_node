@@ -259,3 +259,9 @@ div.floor-content div.product a{
     color: #fefefe;
     transition: color .1s;
 }
+.desc .name{
+    font-size:25px;
+}
+.product .name{
+    font-size:12px;
+}

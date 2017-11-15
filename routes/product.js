@@ -28,6 +28,8 @@ router.post("/cart/add",(req,res,next)=>{
     productModel.addProduct(uid,lid,count,()=>{
       res.send("succ");
     });
+  }else{
+    res.send('err');
   }
 })
 

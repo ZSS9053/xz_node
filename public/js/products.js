@@ -79,7 +79,12 @@
 			lid:$add.parent().parent().attr("id"),
 			count:$add.prev().prev().val()
 		}).then((msg)=>{
-			loadCart();
+		  if(msg=="err"){
+		    alert('您还未登录，请登录');
+		    location="login.html";
+      }else{
+        loadCart();
+      }
 		})
 	})
   loadCart();
